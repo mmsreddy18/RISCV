@@ -1,0 +1,22 @@
+{
+ "CoreMark -O2": {
+  "rvc": 7046,
+  "norvc": 9908,
+  "saving_pct": 28.885748889786033
+ },
+ "CoreMark -O3 unrolled": {
+  "rvc": 25242,
+  "norvc": 30504,
+  "saving_pct": 17.250196695515342
+ },
+ "Dhrystone -O2": {
+  "rvc": 2526,
+  "norvc": 3036,
+  "saving_pct": 16.798418972332016
+ },
+ "Kernel suite (9 kernels, -O2)": {
+  "rvc": 2478,
+  "norvc": 3556,
+  "saving_pct": 30.31496062992126
+ }
+}

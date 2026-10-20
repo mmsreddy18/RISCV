@@ -1,0 +1,57 @@
+{
+ "flat_fast0_speed": {
+  "comb_area_um2": 17214.99,
+  "logic_delay_ps": 2649.78,
+  "comb_gates": 14358,
+  "path_gates": 64,
+  "total_area_um2": 24511.9,
+  "nand2_gate_equiv": 30716.666666666668,
+  "cycle_ps": 2849.78,
+  "fmax_mhz": 350.90428033041144
+ },
+ "flat_fast0_area": {
+  "comb_area_um2": 17071.35,
+  "logic_delay_ps": 2978.56,
+  "comb_gates": 14358,
+  "path_gates": 64,
+  "total_area_um2": 24368.26,
+  "nand2_gate_equiv": 30536.666666666664,
+  "cycle_ps": 3178.56,
+  "fmax_mhz": 314.6078727474076
+ },
+ "flat_fast1_speed": {
+  "comb_area_um2": 17393.74,
+  "logic_delay_ps": 2712.99,
+  "comb_gates": 14432,
+  "path_gates": 67,
+  "total_area_um2": 24690.652,
+  "nand2_gate_equiv": 30940.666666666664,
+  "cycle_ps": 2912.99,
+  "fmax_mhz": 343.28988427698005
+ },
+ "flat_fast1_area": {
+  "comb_area_um2": 17245.58,
+  "logic_delay_ps": 3098.7,
+  "comb_gates": 14432,
+  "path_gates": 64,
+  "total_area_um2": 24542.49,
+  "nand2_gate_equiv": 30755.0,
+  "cycle_ps": 3298.7,
+  "fmax_mhz": 303.1497256494983
+ },
+ "modules_um2": {
+  "rv_core": 2837.422,
+  "rv_fetch": 1513.008,
+  "rv_alu": 1255.786,
+  "rv_c_decoder": 274.778,
+  "rv_decoder": 167.314,
+  "rv_div": 1655.85,
+  "rv_mul": 6427.358,
+  "rv_regfile": 9906.904
+ },
+ "flat_fast0_speed_no_muldiv": {
+  "logic_delay_ps": 2047.9,
+  "cycle_ps": 2247.9,
+  "fmax_mhz": 444.85964678144046
+ }
+}

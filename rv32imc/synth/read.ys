@@ -1,0 +1,2 @@
+read_verilog -sv -defer rtl/rv_pkg.sv rtl/rv_c_decoder.sv rtl/rv_decoder.sv rtl/rv_alu.sv rtl/rv_regfile.sv rtl/rv_mul.sv rtl/rv_div.sv rtl/rv_fetch.sv rtl/rv_core.sv
+hierarchy -check -top rv_core
