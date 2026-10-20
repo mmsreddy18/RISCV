@@ -1,0 +1,378 @@
+{
+ "fast0": {
+  "alu_indep": {
+   "desc": "ALU, independent operands",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "alu_dep": {
+   "desc": "ALU, back-to-back dependent (forwarding)",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "load": {
+   "desc": "load, independent",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "load_use_0": {
+   "desc": "load, consumer immediately after",
+   "exec": 2,
+   "cycles_per_unit": 3.0,
+   "extra_per_unit": 1.0
+  },
+  "load_use_1": {
+   "desc": "load, one instruction between",
+   "exec": 3,
+   "cycles_per_unit": 3.0,
+   "extra_per_unit": 0.0
+  },
+  "load_to_store": {
+   "desc": "load feeding store data",
+   "exec": 2,
+   "cycles_per_unit": 3.0,
+   "extra_per_unit": 1.0
+  },
+  "store": {
+   "desc": "store",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "store_load": {
+   "desc": "store then load, same address",
+   "exec": 2,
+   "cycles_per_unit": 2.0,
+   "extra_per_unit": 0.0
+  },
+  "br_not_taken": {
+   "desc": "conditional branch, not taken",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "br_taken": {
+   "desc": "conditional branch, taken, word-aligned target",
+   "exec": 1,
+   "cycles_per_unit": 4.0,
+   "extra_per_unit": 3.0
+  },
+  "br_taken_dep": {
+   "desc": "taken branch, operand from preceding ALU op",
+   "exec": 2,
+   "cycles_per_unit": 5.0,
+   "extra_per_unit": 3.0
+  },
+  "br_taken_lduse": {
+   "desc": "taken branch, operand from preceding load",
+   "exec": 2,
+   "cycles_per_unit": 6.0,
+   "extra_per_unit": 4.0
+  },
+  "jal": {
+   "desc": "jal",
+   "exec": 1,
+   "cycles_per_unit": 4.0,
+   "extra_per_unit": 3.0
+  },
+  "jalr": {
+   "desc": "jalr (auipc + jalr to next unit)",
+   "exec": 2,
+   "cycles_per_unit": 5.0,
+   "extra_per_unit": 3.0
+  },
+  "br_taken_word": {
+   "desc": "taken branch to word-aligned 32-bit target",
+   "exec": 2,
+   "cycles_per_unit": 5.0,
+   "extra_per_unit": 3.0
+  },
+  "br_taken_half": {
+   "desc": "taken branch to halfword-aligned 32-bit target",
+   "exec": 3,
+   "cycles_per_unit": 7.0,
+   "extra_per_unit": 4.0
+  },
+  "mul": {
+   "desc": "MUL (low 32 bits)",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "mulh": {
+   "desc": "MULH",
+   "exec": 1,
+   "cycles_per_unit": 4.0,
+   "extra_per_unit": 3.0
+  },
+  "mulhu": {
+   "desc": "MULHU",
+   "exec": 1,
+   "cycles_per_unit": 4.0,
+   "extra_per_unit": 3.0
+  },
+  "mulhsu": {
+   "desc": "MULHSU",
+   "exec": 1,
+   "cycles_per_unit": 4.0,
+   "extra_per_unit": 3.0
+  },
+  "mul_use": {
+   "desc": "MUL, consumer immediately after",
+   "exec": 2,
+   "cycles_per_unit": 2.0,
+   "extra_per_unit": 0.0
+  },
+  "div": {
+   "desc": "DIV",
+   "exec": 1,
+   "cycles_per_unit": 34.0,
+   "extra_per_unit": 33.0
+  },
+  "divu": {
+   "desc": "DIVU",
+   "exec": 1,
+   "cycles_per_unit": 34.0,
+   "extra_per_unit": 33.0
+  },
+  "rem": {
+   "desc": "REM",
+   "exec": 1,
+   "cycles_per_unit": 34.0,
+   "extra_per_unit": 33.0
+  },
+  "remu": {
+   "desc": "REMU",
+   "exec": 1,
+   "cycles_per_unit": 34.0,
+   "extra_per_unit": 33.0
+  },
+  "div_by_zero": {
+   "desc": "DIV by zero",
+   "exec": 1,
+   "cycles_per_unit": 34.0,
+   "extra_per_unit": 33.0
+  },
+  "div_use": {
+   "desc": "DIV, consumer immediately after",
+   "exec": 2,
+   "cycles_per_unit": 35.0,
+   "extra_per_unit": 33.0
+  },
+  "rvc_alu": {
+   "desc": "compressed ALU, dependent",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "rvc_load": {
+   "desc": "compressed load",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "mix_16_32": {
+   "desc": "alternating 16/32-bit instructions",
+   "exec": 2,
+   "cycles_per_unit": 2.0,
+   "extra_per_unit": 0.0
+  },
+  "mix_16_32_32": {
+   "desc": "16-bit then two 32-bit instructions",
+   "exec": 3,
+   "cycles_per_unit": 3.0,
+   "extra_per_unit": 0.0
+  }
+ },
+ "fast1": {
+  "alu_indep": {
+   "desc": "ALU, independent operands",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "alu_dep": {
+   "desc": "ALU, back-to-back dependent (forwarding)",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "load": {
+   "desc": "load, independent",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "load_use_0": {
+   "desc": "load, consumer immediately after",
+   "exec": 2,
+   "cycles_per_unit": 3.0,
+   "extra_per_unit": 1.0
+  },
+  "load_use_1": {
+   "desc": "load, one instruction between",
+   "exec": 3,
+   "cycles_per_unit": 3.0,
+   "extra_per_unit": 0.0
+  },
+  "load_to_store": {
+   "desc": "load feeding store data",
+   "exec": 2,
+   "cycles_per_unit": 3.0,
+   "extra_per_unit": 1.0
+  },
+  "store": {
+   "desc": "store",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "store_load": {
+   "desc": "store then load, same address",
+   "exec": 2,
+   "cycles_per_unit": 2.0,
+   "extra_per_unit": 0.0
+  },
+  "br_not_taken": {
+   "desc": "conditional branch, not taken",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "br_taken": {
+   "desc": "conditional branch, taken, word-aligned target",
+   "exec": 1,
+   "cycles_per_unit": 3.0,
+   "extra_per_unit": 2.0
+  },
+  "br_taken_dep": {
+   "desc": "taken branch, operand from preceding ALU op",
+   "exec": 2,
+   "cycles_per_unit": 4.0,
+   "extra_per_unit": 2.0
+  },
+  "br_taken_lduse": {
+   "desc": "taken branch, operand from preceding load",
+   "exec": 2,
+   "cycles_per_unit": 5.0,
+   "extra_per_unit": 3.0
+  },
+  "jal": {
+   "desc": "jal",
+   "exec": 1,
+   "cycles_per_unit": 3.0,
+   "extra_per_unit": 2.0
+  },
+  "jalr": {
+   "desc": "jalr (auipc + jalr to next unit)",
+   "exec": 2,
+   "cycles_per_unit": 4.0,
+   "extra_per_unit": 2.0
+  },
+  "br_taken_word": {
+   "desc": "taken branch to word-aligned 32-bit target",
+   "exec": 2,
+   "cycles_per_unit": 4.0,
+   "extra_per_unit": 2.0
+  },
+  "br_taken_half": {
+   "desc": "taken branch to halfword-aligned 32-bit target",
+   "exec": 3,
+   "cycles_per_unit": 6.0,
+   "extra_per_unit": 3.0
+  },
+  "mul": {
+   "desc": "MUL (low 32 bits)",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "mulh": {
+   "desc": "MULH",
+   "exec": 1,
+   "cycles_per_unit": 4.0,
+   "extra_per_unit": 3.0
+  },
+  "mulhu": {
+   "desc": "MULHU",
+   "exec": 1,
+   "cycles_per_unit": 4.0,
+   "extra_per_unit": 3.0
+  },
+  "mulhsu": {
+   "desc": "MULHSU",
+   "exec": 1,
+   "cycles_per_unit": 4.0,
+   "extra_per_unit": 3.0
+  },
+  "mul_use": {
+   "desc": "MUL, consumer immediately after",
+   "exec": 2,
+   "cycles_per_unit": 2.0,
+   "extra_per_unit": 0.0
+  },
+  "div": {
+   "desc": "DIV",
+   "exec": 1,
+   "cycles_per_unit": 34.0,
+   "extra_per_unit": 33.0
+  },
+  "divu": {
+   "desc": "DIVU",
+   "exec": 1,
+   "cycles_per_unit": 34.0,
+   "extra_per_unit": 33.0
+  },
+  "rem": {
+   "desc": "REM",
+   "exec": 1,
+   "cycles_per_unit": 34.0,
+   "extra_per_unit": 33.0
+  },
+  "remu": {
+   "desc": "REMU",
+   "exec": 1,
+   "cycles_per_unit": 34.0,
+   "extra_per_unit": 33.0
+  },
+  "div_by_zero": {
+   "desc": "DIV by zero",
+   "exec": 1,
+   "cycles_per_unit": 34.0,
+   "extra_per_unit": 33.0
+  },
+  "div_use": {
+   "desc": "DIV, consumer immediately after",
+   "exec": 2,
+   "cycles_per_unit": 35.0,
+   "extra_per_unit": 33.0
+  },
+  "rvc_alu": {
+   "desc": "compressed ALU, dependent",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "rvc_load": {
+   "desc": "compressed load",
+   "exec": 1,
+   "cycles_per_unit": 1.0,
+   "extra_per_unit": 0.0
+  },
+  "mix_16_32": {
+   "desc": "alternating 16/32-bit instructions",
+   "exec": 2,
+   "cycles_per_unit": 2.0,
+   "extra_per_unit": 0.0
+  },
+  "mix_16_32_32": {
+   "desc": "16-bit then two 32-bit instructions",
+   "exec": 3,
+   "cycles_per_unit": 3.0,
+   "extra_per_unit": 0.0
+  }
+ }
+}

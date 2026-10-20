@@ -1,0 +1,43 @@
+{
+ "flat_fast0_speed": {
+  "comb_area_um2": 27903.93,
+  "logic_delay_ps": 2741.35,
+  "comb_gates": 22298,
+  "path_gates": 62,
+  "total_area_um2": 43209.572,
+  "nand2_gate_equiv": 54147.33333333333,
+  "cycle_ps": 2941.35,
+  "fmax_mhz": 339.9799411834702
+ },
+ "flat_fast0_area": {
+  "comb_area_um2": 27641.92,
+  "logic_delay_ps": 3211.54,
+  "comb_gates": 22298,
+  "path_gates": 63,
+  "total_area_um2": 42947.562,
+  "nand2_gate_equiv": 53818.99999999999,
+  "cycle_ps": 3411.54,
+  "fmax_mhz": 293.1227539468979
+ },
+ "modules_um2": {
+  "rv_npc": 16078.104,
+  "rv_core": 3414.376,
+  "rv_fetch": 3351.334,
+  "rv_alu": 1255.786,
+  "rv_c_decoder": 261.478,
+  "rv_decoder": 171.304,
+  "rv_div": 1655.052,
+  "rv_mul": 6427.358,
+  "rv_regfile": 9908.5
+ },
+ "flat_fast0_speed_no_muldiv": {
+  "logic_delay_ps": 2925.97,
+  "cycle_ps": 3125.97,
+  "fmax_mhz": 319.9007028218441
+ },
+ "config": {
+  "BP": 1,
+  "BTB": 16,
+  "BHT": 64
+ }
+}

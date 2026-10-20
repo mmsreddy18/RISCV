@@ -1,0 +1,10 @@
+FAST=0 stall=0 directed: TB: PASS  violations: none
+FAST=0 stall=1 directed: TB: PASS  violations: none
+FAST=0 stall=0 traps: TB: PASS  violations: none
+FAST=0 stall=1 traps: TB: PASS  violations: none
+FAST=0 stall=0 coremark: TB: PASS  violations: none
+FAST=1 stall=0 directed: TB: PASS  violations: none
+FAST=1 stall=1 directed: TB: PASS  violations: none
+FAST=1 stall=0 traps: TB: PASS  violations: none
+FAST=1 stall=1 traps: TB: PASS  violations: none
+FAST=1 stall=0 coremark: TB: PASS  violations: none

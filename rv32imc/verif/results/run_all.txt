@@ -1,0 +1,38 @@
+1 variants regression (base/bp/zicsr; directed+traps+access_faults+300 random vs own ISS):
+   PASS lines: 10
+      3 done: 300 programs x 2 configs, failures=0
+2 OBI dynamic checker audit (instr+data ports, FAST 0/1):
+   rows with violations: 0
+3 R-21.1 / R-24 structural (Yosys):
+   FAST_REDIRECT=0:
+     instr_req_o    <- link inputs: (none)   [other: rst_ni]
+     instr_addr_o   <- link inputs: (none)   [other: -]
+     data_req_o     <- link inputs: (none)   [other: -]
+     data_addr_o    <- link inputs: (none)   [other: -]
+     data_we_o      <- link inputs: (none)   [other: -]
+     data_be_o      <- link inputs: (none)   [other: -]
+     data_wdata_o   <- link inputs: (none)   [other: -]
+   FAST_REDIRECT=1:
+     instr_req_o    <- link inputs: data_err_i, data_gnt_i, data_rdata_i, data_rvalid_i   [other: hart_id_i, rst_ni]
+     instr_addr_o   <- link inputs: data_err_i, data_gnt_i, data_rdata_i, data_rvalid_i   [other: hart_id_i]
+     data_req_o     <- link inputs: (none)   [other: -]
+     data_addr_o    <- link inputs: (none)   [other: -]
+     data_we_o      <- link inputs: (none)   [other: -]
+     data_be_o      <- link inputs: (none)   [other: -]
+     data_wdata_o   <- link inputs: (none)   [other: -]
+4 SoC with pulp-platform interconnect (plain / SRAM wait states / 2 slices):
+   PASS lines (of 20): 20
+5 SoC with third-party obi_asserter on every link:
+   directed: TB: PASS
+   traps: TB: PASS
+   soc_faults: TB: PASS
+   coremark: TB: PASS
+   coremark: TB: PASS
+6 official riscv-tests (rv32ui/um/uc/mi):
+   build/f0_d4_b1_g0/Vtb_core stall=0: TOTAL {'PASS': 61, 'FAIL': 2, 'BUILD-FAIL': 0, 'SKIP': 4}
+   build/f0_d4_b1_g0/Vtb_core stall=1: TOTAL {'PASS': 61, 'FAIL': 2, 'BUILD-FAIL': 0, 'SKIP': 4}
+   build/f1_d4_b1_g0/Vtb_core stall=0: TOTAL {'PASS': 61, 'FAIL': 2, 'BUILD-FAIL': 0, 'SKIP': 4}
+7 random programs vs Spike (300 x 2 stall modes):
+   done: 300 programs x 2 configs, failures=0
+8 bounded formal (Yosys SAT, OBI manager rules, 20 cycles from reset):
+   [final depth=20 FAST_REDIRECT=0] PROVED (no assertion can fail within 20 cycles from reset)

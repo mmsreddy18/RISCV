@@ -1,0 +1,1 @@
+verif/third_party/obi_asserter_renamed.sv
