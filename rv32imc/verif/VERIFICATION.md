@@ -48,3 +48,9 @@ Run everything with `verif/run_all.sh` (about 8 minutes). Last result: `verif/re
 | (shared SRAM) + random wait states | 4,982,820 | 1.590 |
 | (shared SRAM) + 2 register slices | 8,922,642 | 2.848 |
 The +5.1% was measured by switching `OBI_STRICT_REQ` off (cycles return to 3,568,468). The extra 8.8% between the testbench memory and the plain SoC is contention for the single SRAM port: instruction fetch and data accesses share one SRAM, and the testbench memory has separate instruction and data memories. Measured in the CoreMark region: both ports see a 1-cycle response latency (same as the testbench), but the data port waits 335,984 cycles for grant and the instruction port 141,633, and every one of those wait cycles coincides with the other port being granted in the same cycle. Extra cycles vs the testbench: 331,855. Splitting code and data into two SRAMs removes it: the split SoC runs CoreMark in 3,749,741 cycles, within 58 cycles of the testbench figure (the CoreMark image must be linked with data in DTCM; the old single-region image on the split SoC takes 3,999,193 because its data still lands in ITCM). Wait states cost +16.8% instead of +22% for the shared SRAM.
+
+## Found by Vivado synthesis (xczu5ev, Vivado 2025.2), fixed
+`rv_fetch` reset `fetch_addr_q`, `pc_q`, `hw_off_q` asynchronously to the value of the input `boot_addr_i`. Vivado mapped them to FDCP
+(async set AND clear) and raised ~60 critical warnings "cannot be timed accurately" (Netlist 29-358). Simulation and the formal check
+could not show this. Fix: the register block of `rv_fetch` now uses a synchronous reset (reset must last at least one clock edge).
+All checks were re-run afterwards with identical results (cycle counts unchanged).

@@ -235,7 +235,11 @@ module rv_fetch #(
   assign npop    = take ? ((!is_c && hw_off_q) ? 2'd2 : 2'd1) : {1'b0, pop};
 
   // -------------------------------------------------------------- sequential
-  always_ff @(posedge clk_i or negedge rst_ni) begin
+  // SYNCHRONOUS reset on purpose: fetch_addr_q / pc_q / hw_off_q reset to the VALUE OF THE INPUT boot_addr_i.
+  // An asynchronous reset to a non-constant value needs both an async set and an async clear on the same flip-flop
+  // (Xilinx FDCP, "cannot be timed accurately" - Vivado critical warning Netlist 29-358). Reset must be held for at
+  // least one clock edge. instr_req_o is gated with rst_ni combinationally, so req stays low during reset (OBI R-2.1).
+  always_ff @(posedge clk_i) begin
     if (!rst_ni) begin
       fetch_addr_q <= {boot_addr_i[31:2], 2'b00};
       pc_q         <= {boot_addr_i[31:1], 1'b0};

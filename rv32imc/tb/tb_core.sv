@@ -24,7 +24,7 @@ module tb_core;
   parameter bit ZICSR         = 1'b1;
   parameter bit GSHARE        = 1'b0;
   parameter bit OBI_FATAL     = 1'b0;   // 1: stop at the first OBI protocol violation
-  parameter int BTB_N = 16, BTB_W = 4, BHT_N = 64, BHT_W = 6;
+  parameter int BTB_N = 16, BTB_W = 4, BHT_N = 64, BHT_W = 6, RAS_N = 8, RAS_W = 3;
 
   localparam int MEM_WORDS = 65536;       // 256 KiB
   localparam int DUMP_BASE = 32'h0000_4000;
@@ -50,7 +50,7 @@ module tb_core;
   logic        irq_sw = 1'b0, irq_tm = 1'b0, irq_ex = 1'b0;
 
   rv_core #(.FETCH_DEPTH(FETCH_DEPTH), .FAST_REDIRECT(FAST_REDIRECT), .BP_ENABLE(BP_ENABLE), .ZICSR(ZICSR), .GSHARE(GSHARE),
-          .BTB_N(BTB_N), .BTB_W(BTB_W), .BHT_N(BHT_N), .BHT_W(BHT_W)) dut (
+          .BTB_N(BTB_N), .BTB_W(BTB_W), .BHT_N(BHT_N), .BHT_W(BHT_W), .RAS_N(RAS_N), .RAS_W(RAS_W)) dut (
     .clk_i(clk), .rst_ni(rst_n), .boot_addr_i(32'h0000_0000), .hart_id_i(32'h0),
     .irq_software_i(irq_sw), .irq_timer_i(irq_tm), .irq_external_i(irq_ex),
     .instr_req_o(instr_req), .instr_gnt_i(instr_gnt), .instr_addr_o(instr_addr),
